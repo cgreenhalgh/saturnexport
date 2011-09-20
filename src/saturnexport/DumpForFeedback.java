@@ -64,6 +64,7 @@ public class DumpForFeedback {
 		 */
 		if (args.length==0) {
 			logger.log(Level.SEVERE, "Usage: <jdbc.properties> [<outfile> <year-code> <site-code> [<school-code> ...]]");
+			logger.log(Level.INFO, "For example (UK, 2011/12, CS): etc/jdbc-local.properties export.json 000111 UK 000245");
 			System.exit(-1);
 		}
 		Connection conn = JdbcUtils.getConnection(args[0]);

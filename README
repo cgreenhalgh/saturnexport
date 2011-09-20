@@ -1,3 +1,53 @@
 Exporting useful information from the Saturn database, e.g. for feedback support/monitoring
 
 Chris Greenhalgh, University of Nottingham, 2011
+
+saturntools.DumpForFeedback - dumps information for a school (or several), listing assessments in particular, in the form (JSON, UTF-8)(:
+
+     {
+          header={
+                orgs=[
+                      {
+                            code='000245' (ex)
+                            descr='Computer Science' (ex)
+                timestamp=123 (unixtime, seconds, GMT)
+                database_host='...'
+                database_name='...'
+                file_version='1.0' (ex)
+                exporter_version='1.0' (ex)
+                sites=[
+                      code='UNUK'
+                years=[
+                      {
+                            code='000111'
+                            descr='11/12'
+          modules=[
+                {
+                      id='006672' (ex)
+                      code='G53SRP'
+                      title='System and Realtime Programming'
+                      org={
+                            code='00245'
+                            descr='Computer Science'
+                      site_code='UNUK'
+                      taught={
+                            year='11/12'
+                            semester='Autumn'
+                      level='Level 3'
+                      staff=[
+                            {
+                                  id='400562070' (ex)
+                                  name='Professor  CM Greenhalgh'
+                                  org={
+                                        code='000245'
+                                        descr='Computer Science'
+                                  relationship='Module Convenor' (ex)
+                      status='Live' (ex)
+                      assess=[
+                            {
+                                  type='Exam 1'
+                                  requirements='2 hr written examination'
+                                  percent=100
+                                  status='Compulsory'
+
+Sample usage (UK, 2011/12, CS): java -cp ... saturntools.DumpForFeedback etc/jdbc-local.properties export.json 000111 UK 000245
